@@ -1,0 +1,12 @@
+[Unit]
+Description=Network watchdog (recover wlan0 / reboot on persistent loss)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/sbin/net-watchdog.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
